@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="index.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <script>
+            var defaultDateStart;
+            var dateFinish = '';
+            var userName = 'HW Company';
+            var score;
+            var startPositionBird = 300; 
+            var finishPositionBird = 20;
+            var middlePositionBird = (startPositionBird + finishPositionBird) / 2;
+
+            function getTime(dateDk, dateSn) {
+                score = dateDk * 60 + dateSn * 3;
+
+                return score;
+            }
+
+            $(function() {
+                $(window).load(function(){
+                    console.log('----------STARTED---------')                    
+                    defaultDateStart = new Date();
+                });
+
+                $('#startButton').click(function(){
+                    $('h3#username').text('Username : '+ userName);
+                    $('h3#score').text('Score : '+ 0);
+                });
+
+                $('#jumpButton').click(function(){
+                    var newDateStart = new Date();
+
+                    defaultDateDk = parseInt(((defaultDateStart.toString().split(' ') || [])[4] || '').split(':')[1]);
+                    defaultDateSn = parseInt(((defaultDateStart.toString().split(' ') || [])[4] || '').split(':')[2]);
+
+                    dateDk = parseInt(((newDateStart.toString().split(' ') || [])[4] || '').split(':')[1]);
+                    dateSn = parseInt(((newDateStart.toString().split(' ') || [])[4] || '').split(':')[2]);
+
+                    diffDk = defaultDateDk - dateDk;
+                    diffSn = defaultDateSn - dateSn;
+
+                    $('h3#username').text('Username : '+ userName);
+                    $('h3#score').text('Score : '+ getTime(dateDk, dateSn));
+                    $('#bird').animate({'top': finishPositionBird + 'px'}, 500);
+                    $('#bird').animate({'top': startPositionBird + 'px'}, 380);
+                });
+            });
+        </script>
+
+        <title>Hello World Games</title>
+
+    </head>    
+
+    <body>
+        <div id="bird"> 
+            <img id="imgBird" src="/bird.png">    
+        </div>
+        <button id="startButton" onclick="Start()"><b> START </b></button>
+        <button id="jumpButton"><b> JUMP </b></button>
+        <h1 id="mainTitle">FLUPPY BIRD GAME</h1>
+        <h3 id="username"></h3>
+        <h3 id="score"></h3>
+        <blockquote>@ 2019 Hello World Company</blockquote>
+    </body>
+
+    
+</html>
