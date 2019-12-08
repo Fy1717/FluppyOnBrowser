@@ -1,0 +1,1 @@
+# FluppyOnBrowser Projesi . Html ve css ayrı dosyalarda . MOdülerlik için Js dosyası da ayrılmalı . JQuery kullanılarak tasarlandı . Score tahmini Date() fonksiyonuna bağlı . Kuşun konumunu 'top' a göre ayarlıyoruz . Arka planın hareketliliği sağlanmalı 
