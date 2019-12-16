@@ -4,6 +4,7 @@ body {
     height: 200px;
     width: 800px;
     background-color: lawngreen;
+   overflow: hidden;
 }
 
 #mainTitle {
@@ -16,19 +17,21 @@ body {
 
 #bird {
     position: absolute;
-    background-color: black;
+    background-color: transparent;
     top: 300px;
     left: 250px;
     width: 50px;
     height: 50px;
     text-align: center;
     text-decoration: silver;
+    z-index: 999;
 }
 
 #imgBird {
     background-image: url('/bird.png');
     width: 50px;
     height: 50px;
+    z-index: 999;
 }
 
 #startButton {
@@ -83,3 +86,30 @@ blockquote {
     width: 50px;
     height: 50px;
 }
+
+#imgMap{
+    width: 1920px;
+    height: 370px;
+}
+.marquee {
+    /*position: relative;*/
+    width: 1920px;
+    max-width: 100%;
+    height: 470px;
+    overflow-x: hidden;
+
+  }
+  
+  .track {
+    position: absolute;
+    white-space: nowrap;
+    will-change: transform;
+    animation: marquee 10s linear infinite;
+    margin-top: 20px;
+  }
+  
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  
