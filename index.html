@@ -11,12 +11,46 @@
             var startPositionBird = 300; 
             var finishPositionBird = 20;
             var middlePositionBird = (startPositionBird + finishPositionBird) / 2;
+            $('#animatedbackground').width($('#img1').width());
+            document.addEventListener("onekeydown",bounce,false);
 
             function getTime(dateDk, dateSn) {
                 score = dateDk * 60 + dateSn * 3;
 
                 return score;
-            }
+            };
+
+            function bounce(e){
+                var keyCode = e.keyCode;
+               
+                if (keyCode==32){
+
+                    var newDateStart = new Date();
+                    defaultDateDk = parseInt(((defaultDateStart.toString().split(' ') || [])[4] || '').split(':')[1]);
+                    defaultDateSn = parseInt(((defaultDateStart.toString().split(' ') || [])[4] || '').split(':')[2]);
+
+                    dateDk = parseInt(((newDateStart.toString().split(' ') || [])[4] || '').split(':')[1]);
+                    dateSn = parseInt(((newDateStart.toString().split(' ') || [])[4] || '').split(':')[2]);
+                    
+                    diffDk = defaultDateDk - dateDk;
+                    diffSn = defaultDateSn - dateSn;
+                    
+                    $('h3#username').text('Username : '+ userName);
+                    $('h3#score').text('Score : '+ getTime(dateDk, dateSn));
+                    $('#bird').animate({'top': finishPositionBird + 'px'}, 500);
+                    $('#bird').animate({'top': startPositionBird + 'px'}, 380);
+                    console.log("Tiklandi")
+                   
+                };
+            };
+            function ciz() {
+ 
+                var tuval = document.getElementById("cnTuval");
+                var ctx = tuval.getContext("2d");
+                var resim = document.getElementById("imgKaynak");
+                ctx.drawImage(resim, 15, 15);
+
+        };
 
             $(function() {
                 $(window).load(function(){
@@ -44,9 +78,9 @@
                     $('h3#username').text('Username : '+ userName);
                     $('h3#score').text('Score : '+ getTime(dateDk, dateSn));
                     $('#bird').animate({'top': finishPositionBird + 'px'}, 500);
-                    $('#bird').animate({'top': startPositionBird + 'px'}, 380);
-                });
+                $('#bird').animate({'top': startPositionBird + 'px'}, 380);
             });
+        });
         </script>
 
         <title>Hello World Games</title>
@@ -56,7 +90,15 @@
     <body>
         <div id="bird"> 
             <img id="imgBird" src="/bird.png">    
-        </div>
+        </div> 
+        <div class="marquee">
+            <div class="track">
+              <div class="content">&nbsp; <img id="imgMap" src="/map.png"><img id="imgMap" src="/map.png"></div>
+            </div>
+          </div>
+        <canvas id="rock" width="100" height="100">
+
+        </canvas>
         <button id="startButton" onclick="Start()"><b> START </b></button>
         <button id="jumpButton"><b> JUMP </b></button>
         <h1 id="mainTitle">FLUPPY BIRD GAME</h1>
