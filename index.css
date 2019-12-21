@@ -91,10 +91,12 @@ blockquote {
     width: 1920px;
     height: 370px;
 }
+
 #imgRock{
     width: 100px;
     height: 100px;
 }
+
 .marquee {
     position: absolute;
     width: 1920px;
@@ -103,27 +105,27 @@ blockquote {
     overflow-x: hidden;
 
   }
- #marqueerock {
+
+#marqueerock {
     position: absolute;
     top:265px;
     right: 10px;
     width: 1920px;
     height: 100px;
     overflow-x: hidden;
-    overflow: hidden;
-    
-  }
+    overflow: hidden;  
+}
   
-  .track {
+.track {
     position: absolute;
     white-space: nowrap;
     will-change: transform;
     animation: marquee 10s linear infinite;
     margin-top: 20px;
-  }
-  
-  @keyframes marquee {
+}
+
+@keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
-  }
+}
   
