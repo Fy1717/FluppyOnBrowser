@@ -91,13 +91,27 @@ blockquote {
     width: 1920px;
     height: 370px;
 }
+#imgRock{
+    width: 100px;
+    height: 100px;
+}
 .marquee {
-    /*position: relative;*/
+    position: absolute;
     width: 1920px;
     max-width: 100%;
     height: 470px;
     overflow-x: hidden;
 
+  }
+ #marqueerock {
+    position: absolute;
+    top:265px;
+    right: 10px;
+    width: 1920px;
+    height: 100px;
+    overflow-x: hidden;
+    overflow: hidden;
+    
   }
   
   .track {
